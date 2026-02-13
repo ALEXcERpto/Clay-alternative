@@ -1,0 +1,21 @@
+Email,First Name,Last Name,Company,Job Title,Phone
+john.doe@example.com,John,Doe,Acme Corporation,Sales Manager,+1-555-0101
+jane.smith@techcorp.io,Jane,Smith,Tech Corp,Software Engineer,+1-555-0102
+bob.wilson@startup.co,Bob,Wilson,Startup Inc,CEO,+1-555-0103
+alice.brown@enterprise.com,Alice,Brown,Enterprise Solutions,Product Manager,+1-555-0104
+charlie.davis@company.net,Charlie,Davis,Company LLC,Marketing Director,+1-555-0105
+emma.johnson@business.org,Emma,Johnson,Business Group,HR Manager,+1-555-0106
+david.lee@digital.io,David,Lee,Digital Agency,Creative Director,+1-555-0107
+sarah.martinez@solutions.com,Sarah,Martinez,Solutions Inc,Account Executive,+1-555-0108
+michael.anderson@ventures.co,Michael,Anderson,Ventures Capital,Investment Analyst,+1-555-0109
+lisa.taylor@consulting.com,Lisa,Taylor,Consulting Partners,Senior Consultant,+1-555-0110
+james.thomas@innovation.io,James,Thomas,Innovation Labs,CTO,+1-555-0111
+maria.garcia@global.com,Maria,Garcia,Global Enterprises,Operations Manager,+1-555-0112
+robert.rodriguez@tech.net,Robert,Rodriguez,Tech Solutions,DevOps Engineer,+1-555-0113
+jennifer.martinez@media.co,Jennifer,Martinez,Media Group,Content Manager,+1-555-0114
+william.lopez@finance.com,William,Lopez,Finance Corp,Financial Analyst,+1-555-0115
+invalid-email,Test,User,Test Company,Tester,+1-555-0116
+test@,Another,Test,Another Company,Developer,+1-555-0117
+valid.email@domain.com,Valid,User,Valid Company,Designer,+1-555-0118
+contact@startup.io,Contact,Person,Startup XYZ,Founder,+1-555-0119
+info@business.com,Info,Department,Business Co,Admin,+1-555-0120
