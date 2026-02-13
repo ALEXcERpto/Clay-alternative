@@ -3,8 +3,8 @@ import { useState } from 'react';
 export const Settings = () => {
   const [prospeoApiKey, setProspeoApiKey] = useState('');
   const [icypeasApiKey, setIcypeasApiKey] = useState('');
-  const [maxFileSize, setMaxFileSize] = useState('10');
-  const [maxRows, setMaxRows] = useState('1000');
+  const [maxFileSize, setMaxFileSize] = useState('100');
+  const [maxRows, setMaxRows] = useState('100000');
   const [saved, setSaved] = useState(false);
 
   const handleSave = () => {
@@ -101,7 +101,7 @@ export const Settings = () => {
                   value={maxFileSize}
                   onChange={(e) => setMaxFileSize(e.target.value)}
                   min="1"
-                  max="100"
+                  max="500"
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 />
               </div>
@@ -116,7 +116,7 @@ export const Settings = () => {
                   value={maxRows}
                   onChange={(e) => setMaxRows(e.target.value)}
                   min="1"
-                  max="10000"
+                  max="1000000"
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 />
               </div>

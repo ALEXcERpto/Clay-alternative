@@ -120,7 +120,7 @@ export const FileUpload = () => {
                 Drop your CSV file here, or click to browse
               </div>
               <div className="text-sm text-gray-500 mt-1">
-                Maximum file size: 10MB, 1000 rows
+                Maximum file size: 100MB, 100,000 rows
               </div>
             </div>
           )}

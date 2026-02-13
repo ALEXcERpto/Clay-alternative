@@ -18,8 +18,8 @@ export const config = {
   },
 
   // File upload limits
-  maxFileSize: parseInt(process.env.MAX_FILE_SIZE_MB || '10') * 1024 * 1024, // Convert MB to bytes
-  maxRows: parseInt(process.env.MAX_ROWS || '1000'),
+  maxFileSize: parseInt(process.env.MAX_FILE_SIZE_MB || '100') * 1024 * 1024, // Convert MB to bytes
+  maxRows: parseInt(process.env.MAX_ROWS || '100000'),
 
   // Upload directory
   uploadDir: process.env.UPLOAD_DIR || './uploads',
