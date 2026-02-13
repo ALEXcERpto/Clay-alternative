@@ -1,12 +1,12 @@
-enum ValidationStatus {
-  PENDING = 'pending',
-  VALIDATING = 'validating',
-  VALID = 'valid',
-  INVALID = 'invalid',
-  ERROR = 'error'
-}
+export const ValidationStatus = {
+  PENDING: 'pending',
+  VALIDATING: 'validating',
+  VALID: 'valid',
+  INVALID: 'invalid',
+  ERROR: 'error'
+} as const;
 
-export { ValidationStatus };
+export type ValidationStatus = typeof ValidationStatus[keyof typeof ValidationStatus];
 
 export interface CSVRow {
   rowId: string;
@@ -33,14 +33,14 @@ export interface ColumnMapping {
   targetField: 'email' | 'firstName' | 'lastName' | 'company' | 'skip';
 }
 
-enum JobStatus {
-  PENDING = 'pending',
-  PROCESSING = 'processing',
-  COMPLETED = 'completed',
-  FAILED = 'failed'
-}
+export const JobStatus = {
+  PENDING: 'pending',
+  PROCESSING: 'processing',
+  COMPLETED: 'completed',
+  FAILED: 'failed'
+} as const;
 
-export { JobStatus };
+export type JobStatus = typeof JobStatus[keyof typeof JobStatus];
 
 export interface ValidationJob {
   jobId: string;
