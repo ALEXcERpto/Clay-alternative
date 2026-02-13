@@ -11,7 +11,11 @@ const TARGET_FIELDS = [
   { value: 'skip', label: 'Skip' },
 ] as const;
 
-export const ColumnMapper = () => {
+interface ColumnMapperProps {
+  onComplete?: () => void;
+}
+
+export const ColumnMapper = ({ onComplete }: ColumnMapperProps = {}) => {
   const {
     csvHeaders,
     autoDetectedMappings,
@@ -81,6 +85,11 @@ export const ColumnMapper = () => {
       setColumnMappings(columnMappings);
       setCurrentStep('validating');
       setIsValidating(true);
+
+      // Call onComplete callback
+      if (onComplete) {
+        onComplete();
+      }
     } catch (err: any) {
       console.error('Start validation error:', err);
       setError(err.response?.data?.message || 'Failed to start validation');
@@ -90,9 +99,8 @@ export const ColumnMapper = () => {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto">
-      <div className="bg-white rounded-lg shadow-sm p-6">
-        <h2 className="text-2xl font-bold text-gray-900 mb-2">Map Columns</h2>
+    <div className="w-full">
+      <div>
         <p className="text-gray-600 mb-6">
           Map your CSV columns to the expected fields. At least one column must be mapped
           to Email.

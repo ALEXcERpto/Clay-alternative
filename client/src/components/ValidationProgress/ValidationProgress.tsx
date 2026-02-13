@@ -1,7 +1,11 @@
 import { useAppStore } from '../../store/useAppStore';
 import { JobStatus } from '../../types';
 
-export const ValidationProgress = () => {
+interface ValidationProgressProps {
+  compact?: boolean;
+}
+
+export const ValidationProgress = ({ compact = false }: ValidationProgressProps) => {
   const { validationJob } = useAppStore();
 
   if (!validationJob) return null;
@@ -13,6 +17,44 @@ export const ValidationProgress = () => {
 
   const isProcessing = validationJob.status === JobStatus.PROCESSING;
 
+  // Compact mode for toolbar
+  if (compact) {
+    return (
+      <div className="flex items-center gap-4">
+        <div className="flex-1">
+          <div className="flex justify-between items-center mb-1">
+            <span className="text-xs font-medium text-gray-600">
+              {isProcessing ? 'Validating emails...' : 'Validation complete'}
+            </span>
+            <span className="text-xs font-medium text-gray-600">
+              {validationJob.processedRows} / {validationJob.totalRows}
+            </span>
+          </div>
+          <div className="w-full bg-gray-200 rounded-full h-2">
+            <div
+              className={`h-2 rounded-full transition-all duration-300 ${
+                isProcessing ? 'bg-blue-600' : 'bg-green-600'
+              }`}
+              style={{ width: `${progressPercentage}%` }}
+            />
+          </div>
+        </div>
+        <div className="flex items-center gap-3 text-xs">
+          <span className="text-green-700 font-medium">
+            ✓ {validationJob.validRows}
+          </span>
+          <span className="text-red-700 font-medium">
+            ✗ {validationJob.invalidRows}
+          </span>
+          <span className="text-yellow-700 font-medium">
+            ! {validationJob.errorRows}
+          </span>
+        </div>
+      </div>
+    );
+  }
+
+  // Full mode
   return (
     <div className="w-full max-w-4xl mx-auto">
       <div className="bg-white rounded-lg shadow-sm p-6">
