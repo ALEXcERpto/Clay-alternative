@@ -1,10 +1,12 @@
-export enum ValidationStatus {
+enum ValidationStatus {
   PENDING = 'pending',
   VALIDATING = 'validating',
   VALID = 'valid',
   INVALID = 'invalid',
   ERROR = 'error'
 }
+
+export { ValidationStatus };
 
 export interface CSVRow {
   rowId: string;
@@ -31,12 +33,14 @@ export interface ColumnMapping {
   targetField: 'email' | 'firstName' | 'lastName' | 'company' | 'skip';
 }
 
-export enum JobStatus {
+enum JobStatus {
   PENDING = 'pending',
   PROCESSING = 'processing',
   COMPLETED = 'completed',
   FAILED = 'failed'
 }
+
+export { JobStatus };
 
 export interface ValidationJob {
   jobId: string;

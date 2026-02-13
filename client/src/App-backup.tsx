@@ -1,5 +1,4 @@
 // Backup of original App.tsx
-import { useEffect } from 'react';
 import { useAppStore } from './store/useAppStore';
 import { usePolling } from './hooks/usePolling';
 import { FileUpload } from './components/FileUpload';

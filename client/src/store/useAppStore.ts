@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { ValidationJob, ColumnMapping } from '../types';
+import type { ValidationJob, ColumnMapping } from '../types';
 
 interface AppState {
   // Upload state

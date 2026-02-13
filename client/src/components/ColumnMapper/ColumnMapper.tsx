@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useAppStore } from '../../store/useAppStore';
-import { ColumnMapping } from '../../types';
+import type { ColumnMapping } from '../../types';
 import { startValidation } from '../../services/validationService';
 
 const TARGET_FIELDS = [

@@ -1,5 +1,5 @@
 import { api } from './api';
-import { UploadResponse, ValidationJob, ColumnMapping } from '../types';
+import type { UploadResponse, ValidationJob, ColumnMapping } from '../types';
 
 /**
  * Upload CSV file

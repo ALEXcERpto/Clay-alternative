@@ -1,8 +1,9 @@
 import { useMemo } from 'react';
 import { AgGridReact } from 'ag-grid-react';
-import { ColDef } from 'ag-grid-community';
+import type { ColDef } from 'ag-grid-community';
 import { useAppStore } from '../../store/useAppStore';
-import { ValidationStatus, CSVRow } from '../../types';
+import { ValidationStatus } from '../../types';
+import type { CSVRow } from '../../types';
 
 // Custom cell renderer for validation status
 const StatusRenderer = (props: any) => {
