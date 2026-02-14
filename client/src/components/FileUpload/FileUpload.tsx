@@ -46,7 +46,13 @@ export const FileUpload = () => {
         setCurrentStep('mapping');
       } catch (err: any) {
         console.error('Upload error:', err);
-        setError(err.response?.data?.message || 'Failed to upload file');
+        console.error('Error response:', err.response);
+        console.error('Error message:', err.message);
+        const errorMessage = err.response?.data?.message
+          || err.response?.data?.error
+          || err.message
+          || 'Failed to upload file';
+        setError(errorMessage);
       } finally {
         setUploading(false);
       }

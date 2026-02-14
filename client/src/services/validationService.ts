@@ -1,5 +1,8 @@
 import { api } from './api';
+import axios from 'axios';
 import type { UploadResponse, ValidationJob, ColumnMapping } from '../types';
+
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
 
 /**
  * Upload CSV file
@@ -8,11 +11,28 @@ export const uploadCSV = async (file: File): Promise<UploadResponse> => {
   const formData = new FormData();
   formData.append('file', file);
 
-  // Use axios postForm which automatically handles Content-Type with proper boundary
-  // for multipart/form-data uploads (available in axios 1.x+)
-  const response = await api.postForm<UploadResponse>('/upload', formData);
+  console.log('API_URL:', API_URL);
+  console.log('Full upload URL:', `${API_URL}/upload`);
+  console.log('Uploading file:', file.name, 'Size:', file.size, 'Type:', file.type);
 
-  return response.data;
+  try {
+    // Use axios directly (not the api instance) to avoid Content-Type conflicts
+    // Axios will automatically set the correct multipart/form-data with boundary
+    const response = await axios.post<UploadResponse>(
+      `${API_URL}/upload`,
+      formData
+    );
+
+    console.log('Upload response:', response.data);
+
+    return response.data;
+  } catch (error: any) {
+    console.error('Upload failed:', error);
+    console.error('Error response:', error.response);
+    console.error('Error status:', error.response?.status);
+    console.error('Error data:', error.response?.data);
+    throw error;
+  }
 };
 
 /**
