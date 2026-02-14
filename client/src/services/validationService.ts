@@ -8,11 +8,9 @@ export const uploadCSV = async (file: File): Promise<UploadResponse> => {
   const formData = new FormData();
   formData.append('file', file);
 
-  const response = await api.post<UploadResponse>('/upload', formData, {
-    headers: {
-      'Content-Type': 'multipart/form-data',
-    },
-  });
+  // Use axios postForm which automatically handles Content-Type with proper boundary
+  // for multipart/form-data uploads (available in axios 1.x+)
+  const response = await api.postForm<UploadResponse>('/upload', formData);
 
   return response.data;
 };
